@@ -1,8 +1,12 @@
 from django.shortcuts import render
-
+from django.conf import settings
 
 def home(request):
+
+    context = { 'tag_title': settings.SITENAME }
+
     return render(
         request,
-        'projectus/home.html'
+        'projectus/home.html',
+        context
     )
