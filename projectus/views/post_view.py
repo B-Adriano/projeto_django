@@ -27,7 +27,6 @@ def post_view(request, id):
         id=post.id
     ).order_by('?')[:3]  # Fatia somente 3 posts
 
-
     # Processa o comentário enviado
     if request.method == 'POST':
         form = CommentForm(request.POST)
@@ -42,8 +41,12 @@ def post_view(request, id):
     else:
         form = CommentForm()
 
+    # Obtém comentários existentes
+    comments = post.comments.filter(
+        is_active=True,
+        is_deleted=False
+    ).order_by('-created_at')
 
-    
     return render(
         request,
         'projectus/post_view.html',
@@ -53,5 +56,6 @@ def post_view(request, id):
             'posts': posts,  # Posts do autor
             'author_name': author_name,  # Nome do autor do post, ajustado
             'form': form,  # Campos do formulário de comentários
+            'comments': comments, # Comentários existentes
         }
     )

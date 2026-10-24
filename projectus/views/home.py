@@ -15,8 +15,6 @@ def home(request):
     # Total de registro
     total = len(posts)
 
-    print('-------------', total)
-
     return render(
         request,
         'projectus/home.html',

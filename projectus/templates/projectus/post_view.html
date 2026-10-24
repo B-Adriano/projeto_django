@@ -35,18 +35,20 @@
 
     <h3>Comentários</h3>
 
-    {% for comment in post.comments.all %}
-    {% if comment.is_active and not comment.is_deleted %}
+    {% for comment in comments %}
     <p>
-        <strong>{{ comment.user.username }}</strong>:
-        {{ comment.comment }}
+        <strong>{{ comment.user.username }}</strong>
+        <small>{{ comment.created_at|date:"d/m/Y \à\s H:i" }}</small>
     </p>
-    {% endif %}
+    <p>{{ comment.comment }}</p>
+
+    <hr>
     {% empty %}
     <p>Nenhum comentário ainda.</p>
     {% endfor %}
 
-    <hr><hr>
+    <hr>
+    
 
 </article>
 
