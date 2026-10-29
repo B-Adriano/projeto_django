@@ -1,0 +1,52 @@
+
+/* Aparência geral do ProjectUs */
+body {
+    background-color: #f4f6f9;
+    color: #212529;
+    min-height: 100vh;
+}
+
+/* Barra de navegação */
+.navbar-brand {
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+/* Área principal */
+main {
+    min-height: 75vh;
+}
+
+/* Imagens dos posts */
+.post-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Conteúdo dos posts */
+.post-content {
+    white-space: pre-line;
+    overflow-wrap: anywhere;
+}
+
+/* Campos dos formulários */
+form p {
+    margin-bottom: 1rem;
+}
+
+form input:not([type="checkbox"]):not([type="radio"]),
+form textarea,
+form select {
+    display: block;
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid #ced4da;
+    border-radius: 0.375rem;
+    margin-top: 0.25rem;
+}
+
+/* Rodapé */
+footer {
+    color: #6c757d;
+}

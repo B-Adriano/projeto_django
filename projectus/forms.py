@@ -2,7 +2,8 @@ from django import forms
 from .models import Comment
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-
+from .models import Post
+from django import forms
 
 class CommentForm(forms.ModelForm):
     class Meta:
@@ -103,3 +104,41 @@ class ProfileForm(forms.ModelForm):
             )
 
         return email
+
+
+
+
+
+
+
+
+
+
+from .models import Post
+from django import forms
+
+
+class PostForm(forms.ModelForm):
+    class Meta:
+        model = Post
+        fields = ['title', 'summary', 'thumbnail', 'textbody']
+
+        widgets = {
+            'title': forms.TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Título do post'
+            }),
+            'summary': forms.TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Resumo do post'
+            }),
+            'thumbnail': forms.URLInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'URL da imagem'
+            }),
+            'textbody': forms.Textarea(attrs={
+                'class': 'form-control',
+                'rows': 6,
+                'placeholder': 'Escreva o conteúdo do post'
+            }),
+        }

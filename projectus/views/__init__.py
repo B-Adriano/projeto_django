@@ -5,3 +5,4 @@ from .post_view import post_view
 from .register import register
 from .profile import profile
 #from .password_reset import password_reset, password_reset_confirm
+from .create_post import create_post
